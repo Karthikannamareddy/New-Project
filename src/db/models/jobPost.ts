@@ -3,41 +3,42 @@ import sequelizeConnection from "../config";
 
 
 
-interface UserAttributes {
+interface JobPostAttributes {
     id: number,
-    primary_profile: number,
-    user_name: string,
-    password: string,
-    email: string,
-    phone: number,
+    company_name: string,
+    title: string,
+    role: string,
+    skills: string,
+    experience: number,
     
     created_at?: Date,
     updated_at?: Date,
     deleted_at?: Date
 }
 
-export interface userInput extends Optional<UserAttributes, "id"> { }
+export interface PostInput extends Optional<JobPostAttributes, "id"> { }
 
-export interface userOutput extends Required<UserAttributes> { }
+export interface PostOutput extends Required<JobPostAttributes> { }
 
-class User
-    extends Model<UserAttributes, userInput>
-    implements UserAttributes {
+class jobPost
+    extends Model<JobPostAttributes, PostInput>
+    implements JobPostAttributes {
    
 
 
     public id!: number;
-    public primary_profile!: number;
-    public user_name!: string;
-    public password!: string;
-    public email!: string;
-    public phone!: number;
+    public company_name!: string;
+    public title!: string;
+    public role!: string;
+    public skills!: string;
+    public experience!: number;
 
     public readonly created_at!: Date;
     public readonly updated_at!: Date;
     public readonly deleted_at!: Date;
+    
 }
-User.init(
+jobPost .init(
     {
         id: {
             type: DataTypes.INTEGER.UNSIGNED,
@@ -46,26 +47,28 @@ User.init(
             primaryKey: true,
             autoIncrement: true
         },
-        primary_profile: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        user_name: {
+    
+      company_name: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
         },
 
-        password: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        email: {
+        role: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
         },
-        phone: {
+        skills: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
+        experience: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
@@ -77,4 +80,4 @@ User.init(
         paranoid: true,
     })
 
-export default User
+export default jobPost
