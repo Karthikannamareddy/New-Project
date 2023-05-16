@@ -1,10 +1,10 @@
-import jobpost from "../db/models/jobPost"
+import jobpost from "../db/models/jobs"
 import { Router, Request, Response } from 'express'
 import Users from '../db/models/users'
 
-const jobpostroute = Router()
+const jobsRouter = Router()
 
-jobpostroute.post("/",async (req, res) => {
+jobsRouter.post("/",async (req:Request, res:Response) => {
    try {
     const data = req.body
 
@@ -18,10 +18,10 @@ jobpostroute.post("/",async (req, res) => {
    }
 })
 
-jobpostroute.get("/",async (req:Request,res:Response) => {
-    const response  = await Users.findAll()
-
+jobsRouter.get("/",async (req:Request,res:Response) => {
+    const response  = await jobpost.findAll()
+    
     res.send(response)
 } )
 
-export default jobpostroute
+export default jobsRouter

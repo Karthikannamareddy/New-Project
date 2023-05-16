@@ -8,7 +8,7 @@ export async function createAdminUser(){
     const password :string = "admin@1234"
     const status : number = 1
     const email :string = "kenaa@example.com"
-    const phone :number = 9876543210
+    const phone :number = 7013677716
     //check if admin exist or not if admin exist it exist funcation else create admin record
     const existingAdminCredentialCount = await User.count({
         where:{ 

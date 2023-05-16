@@ -1,6 +1,6 @@
 import { createAdminUser } from "./script";
 import User from "./models/users";
-import jobPost from "../db/models/jobPost"
+import jobPost from "./models/jobs"
 
 const isDev = true
 const dbInit = async() => {

@@ -10,6 +10,7 @@ interface JobPostAttributes {
     role: string,
     skills: string,
     experience: number,
+    user_id: number
     
     created_at?: Date,
     updated_at?: Date,
@@ -32,6 +33,7 @@ class jobPost
     public role!: string;
     public skills!: string;
     public experience!: number;
+    public user_id!: number;
 
     public readonly created_at!: Date;
     public readonly updated_at!: Date;
@@ -51,7 +53,7 @@ jobPost .init(
       company_name: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
+            
         },
 
         title: {
@@ -61,16 +63,20 @@ jobPost .init(
         role: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
+           
         },
         skills: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
+            
         },
         experience: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+           
         }
     },
 

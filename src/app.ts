@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // database initialization
 dbInit();
 
-//let uiCodePath = process.env.NODE_ENV == "development"? "client/dist" : "client-dist";
+//let uiCodePath = process.env.NODsignupE_ENV == "development"? "client/dist" : "client-dist";
 let uiCodePath = "client-dist"; //use this to debug production code 
 app.use(express.static(path.join(__dirname, '..', uiCodePath)));
 

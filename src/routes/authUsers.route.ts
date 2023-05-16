@@ -65,6 +65,7 @@ authRouter.post('/signup',async (req:Request,res:Response) => {
     catch(error: any){
         return res.status(500).send({message :`error in creating a new user : ${error}`})
     }
+    const authRouter = Router()
 })
 
 // login
